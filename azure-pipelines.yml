@@ -25,7 +25,7 @@ steps:
     displayName: 'get codeql package and install agent'
 
   - script: |
-      ./codeql-runner-linux \
+      ./codeql-runner-linux init \
       --repository Marimuthukumaran/node-application-CodeQL \
       --github-url https://github.com \
       --github-auth $(GITHUB_PAT) \
@@ -33,7 +33,7 @@ steps:
     displayName: 'initialize codeql executable and codeql database' 
   
   - script: |
-      ./codeql-runner-linux \
+      ./codeql-runner-linux analyze \
       --repository Marimuthukumaran/node-application-CodeQL \
       --github-url https://github.com \
       --github-auth $(GITHUB_PAT) \
