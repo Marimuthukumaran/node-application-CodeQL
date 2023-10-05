@@ -28,7 +28,7 @@ steps:
       ./codeql-runner-linux \
       --repository Marimuthukumaran/node-application-CodeQL \
       --github-url https://github.com \
-      --github-auth $GITHUB_PAT \
+      --github-auth $(GITHUB_PAT) \
       --config-file ./github/codeql/codeql-config.yml
     displayName: 'initialize codeql executable and codeql database' 
   
@@ -36,7 +36,7 @@ steps:
       ./codeql-runner-linux \
       --repository Marimuthukumaran/node-application-CodeQL \
       --github-url https://github.com \
-      --github-auth $GITHUB_PAT \
+      --github-auth $(GITHUB_PAT) \
       --commit $(Build.SourceVersion) \
       --ref $(Build.SourceBranch)
     displayName: 'Populate the codeql runner database analyse them and upload to github'
